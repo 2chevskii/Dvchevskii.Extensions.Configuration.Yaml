@@ -6,10 +6,10 @@ using YamlDotNet.Serialization.NamingConventions;
 namespace Dvchevskii.Extensions.Configuration.Yaml.Tests;
 
 [TestClass]
-public class UnitTest1
+public class YamlConfigurationExtensionsTests
 {
     [TestMethod]
-    public void TestMethod1()
+    public void TestFileRead()
     {
         const string configurationFile = "config.yml";
         IConfigurationBuilder? configurationBuilder = new ConfigurationBuilder().AddYamlFile(
