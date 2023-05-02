@@ -17,19 +17,18 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.Core
             _namingConvention = namingConvention;
         }
 
-        public Dictionary<string,string> Parse(Stream stream)
+        public Dictionary<string, string> Parse(Stream stream)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
 
-            using ( StreamReader sr = new StreamReader(stream) )
+            using (StreamReader sr = new StreamReader(stream))
             {
                 YamlStream yamlStream = new YamlStream();
                 yamlStream.Load(sr);
-                foreach ( YamlDocument document in yamlStream.Documents )
+                foreach (YamlDocument document in yamlStream.Documents)
                 {
-                    IEnumerable<KeyValuePair<string, string>> documentResult =
-                    LoadDocument(document.RootNode);
-                    foreach ( KeyValuePair<string, string> pair in documentResult )
+                    IEnumerable<KeyValuePair<string, string>> documentResult = LoadDocument(document.RootNode);
+                    foreach (KeyValuePair<string, string> pair in documentResult)
                     {
                         data[pair.Key] = pair.Value;
                     }
@@ -41,14 +40,13 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.Core
 
         private IEnumerable<KeyValuePair<string, string>> LoadDocument(YamlNode rootNode)
         {
-            if ( rootNode is YamlMappingNode mappingNode )
+            if (rootNode is YamlMappingNode mappingNode)
             {
                 return VisitMappingNode(mappingNode);
             }
 
             throw new Exception(
-                "Cannot parse configuration document where root node is not a " +
-                nameof(YamlMappingNode)
+                "Cannot parse configuration document where root node is not a " + nameof(YamlMappingNode)
             );
         }
 
@@ -56,11 +54,11 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.Core
         {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
 
-            foreach ( KeyValuePair<YamlNode, YamlNode> pair in node )
+            foreach (KeyValuePair<YamlNode, YamlNode> pair in node)
             {
-                string key = ((YamlScalarNode) pair.Key).Value;
+                string key = ((YamlScalarNode)pair.Key).Value;
 
-                if ( _namingConvention != null )
+                if (_namingConvention != null)
                 {
                     key = _namingConvention.Apply(key);
                 }
@@ -89,7 +87,7 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.Core
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
 
             int i = 0;
-            foreach ( YamlNode child in node.Children )
+            foreach (YamlNode child in node.Children)
             {
                 switch (child)
                 {
@@ -98,13 +96,11 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.Core
                         break;
 
                     case YamlSequenceNode sequenceNode:
-                        IEnumerable<KeyValuePair<string, string>> list2 =
-                        VisitSequenceNode(sequenceNode);
+                        IEnumerable<KeyValuePair<string, string>> list2 = VisitSequenceNode(sequenceNode);
                         list.AddRange(PrependSectionName(list2, i.ToString()));
                         break;
                     case YamlMappingNode mappingNode:
-                        IEnumerable<KeyValuePair<string, string>> list3 =
-                        VisitMappingNode(mappingNode);
+                        IEnumerable<KeyValuePair<string, string>> list3 = VisitMappingNode(mappingNode);
                         list.AddRange(PrependSectionName(list3, i.ToString()));
                         break;
                 }
@@ -120,10 +116,7 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.Core
             string sectionName
         ) => map.Select(x => PrependSectionName(x, sectionName));
 
-        private KeyValuePair<string, string> PrependSectionName(
-            KeyValuePair<string, string> pair,
-            string sectionName
-        )
+        private KeyValuePair<string, string> PrependSectionName(KeyValuePair<string, string> pair, string sectionName)
         {
             return new KeyValuePair<string, string>(
                 string.Concat(sectionName, SECTION_DELIMITER, pair.Key),

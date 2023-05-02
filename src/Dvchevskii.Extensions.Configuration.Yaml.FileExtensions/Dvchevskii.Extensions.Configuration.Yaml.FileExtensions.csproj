@@ -9,8 +9,9 @@
         <PackageReference Include="YamlDotNet" Version="13.1.0" />
     </ItemGroup>
 
+
     <ItemGroup>
-        <ProjectReference Include="..\Dvchevskii.Extensions.Configuration.Yaml.Core\Dvchevskii.Extensions.Configuration.Yaml.Core.csproj" />
+        <ProjectReference Include="..\Dvchevskii.Extensions.Configuration.Yaml.Core\Dvchevskii.Extensions.Configuration.Yaml.Core.csproj"/>
     </ItemGroup>
 
 </Project>
