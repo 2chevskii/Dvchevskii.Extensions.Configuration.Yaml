@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using Dvchevskii.Extensions.Configuration.Yaml.Core;
 using Microsoft.Extensions.Configuration;
-using YamlDotNet.Serialization;
 
-namespace Dvchevskii.Extensions.Configuration.Yaml
+namespace Dvchevskii.Extensions.Configuration.Yaml.FileExtensions
 {
     public class YamlFileConfigurationProvider : FileConfigurationProvider
     {

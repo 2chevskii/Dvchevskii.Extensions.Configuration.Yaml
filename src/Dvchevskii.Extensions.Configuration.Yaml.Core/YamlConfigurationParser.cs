@@ -5,7 +5,7 @@ using System.Linq;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
 
-namespace Dvchevskii.Extensions.Configuration.Yaml
+namespace Dvchevskii.Extensions.Configuration.Yaml.Core
 {
     public class YamlConfigurationParser
     {

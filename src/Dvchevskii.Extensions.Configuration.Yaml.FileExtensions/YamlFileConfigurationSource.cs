@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
-using YamlDotNet.Core;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
-namespace Dvchevskii.Extensions.Configuration.Yaml
+namespace Dvchevskii.Extensions.Configuration.Yaml.FileExtensions
 {
     public class YamlFileConfigurationSource : FileConfigurationSource
     {

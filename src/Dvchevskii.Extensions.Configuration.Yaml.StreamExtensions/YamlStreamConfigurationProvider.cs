@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Dvchevskii.Extensions.Configuration.Yaml.Core;
 using Microsoft.Extensions.Configuration;
 
 namespace Dvchevskii.Extensions.Configuration.Yaml.StreamExtensions
