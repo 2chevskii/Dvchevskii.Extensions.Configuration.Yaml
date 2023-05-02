@@ -1,0 +1,32 @@
+<Project>
+
+  <PropertyGroup>
+    <Company></Company>
+    <Authors>2CHEVSKII</Authors>
+    <Copyright>Copyright (c) 2023 2CHEVSKII, MIT license</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/2chevskii/Dvchevskii.Extensions.Configuration.Yaml.git</RepositoryUrl>
+    <Description>Adds support for yaml files and streams to Microsoft.Extensions.Configuration</Description>
+    <PackageTags>configuration;aspnetcore;hosting;yaml;extensions</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>$(SEM_VER)</Version>
+    <InformationalVersion>$(INFO_VER)</InformationalVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Debug">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
