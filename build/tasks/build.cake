@@ -11,7 +11,7 @@ foreach(var project in projects) {
     });
 
     if(args.Configuration is "Release" && !args.NoCopyArtifacts && !project.IsTest) {
-      var sourceDir = project.Directory.Combine("bin/Release/net6.0");
+      var sourceDir = project.Directory.Combine("bin/Release/netstandard2.0");
       var archiveName = $"{project.Name}.{version.SemVer}.zip";
       var archivePath = paths.Libraries.CombineWithFilePath(archiveName);
 
