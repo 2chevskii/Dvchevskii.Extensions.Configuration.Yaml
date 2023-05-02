@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3E5A22F5-84D8-497C-955C-B3B2E5AEE466}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dvchevskii.Extensions.Configuration.Yaml", "src\Dvchevskii.Extensions.Configuration.Yaml\Dvchevskii.Extensions.Configuration.Yaml.csproj", "{AB208B71-888F-4FF1-8CCB-E3A1573F51EF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{37F265C7-051D-4A3A-B565-4CB815EFCA21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dvchevskii.Extensions.Configuration.Yaml.Tests", "test\Dvchevskii.Extensions.Configuration.Yaml.Tests\Dvchevskii.Extensions.Configuration.Yaml.Tests.csproj", "{78BB2AAC-612E-4A45-A503-89E2DC07B9EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dvchevskii.Extensions.Configuration.Yaml.Core", "src\Dvchevskii.Extensions.Configuration.Yaml.Core\Dvchevskii.Extensions.Configuration.Yaml.Core.csproj", "{3EC8F462-18F1-417B-95F3-644D1298EA28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dvchevskii.Extensions.Configuration.Yaml.FileExtensions", "src\Dvchevskii.Extensions.Configuration.Yaml.FileExtensions\Dvchevskii.Extensions.Configuration.Yaml.FileExtensions.csproj", "{C0493C2E-82B8-4F85-A6B4-6EF2FBE9AD53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dvchevskii.Extensions.Configuration.Yaml.StreamExtensions", "src\Dvchevskii.Extensions.Configuration.Yaml.StreamExtensions\Dvchevskii.Extensions.Configuration.Yaml.StreamExtensions.csproj", "{D11DEB6A-42AA-4DDE-AF4A-4FA68E8D9AC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,17 +22,22 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB208B71-888F-4FF1-8CCB-E3A1573F51EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB208B71-888F-4FF1-8CCB-E3A1573F51EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB208B71-888F-4FF1-8CCB-E3A1573F51EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB208B71-888F-4FF1-8CCB-E3A1573F51EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78BB2AAC-612E-4A45-A503-89E2DC07B9EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78BB2AAC-612E-4A45-A503-89E2DC07B9EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78BB2AAC-612E-4A45-A503-89E2DC07B9EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78BB2AAC-612E-4A45-A503-89E2DC07B9EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC8F462-18F1-417B-95F3-644D1298EA28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC8F462-18F1-417B-95F3-644D1298EA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC8F462-18F1-417B-95F3-644D1298EA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC8F462-18F1-417B-95F3-644D1298EA28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0493C2E-82B8-4F85-A6B4-6EF2FBE9AD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0493C2E-82B8-4F85-A6B4-6EF2FBE9AD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0493C2E-82B8-4F85-A6B4-6EF2FBE9AD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0493C2E-82B8-4F85-A6B4-6EF2FBE9AD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11DEB6A-42AA-4DDE-AF4A-4FA68E8D9AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11DEB6A-42AA-4DDE-AF4A-4FA68E8D9AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11DEB6A-42AA-4DDE-AF4A-4FA68E8D9AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11DEB6A-42AA-4DDE-AF4A-4FA68E8D9AC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{AB208B71-888F-4FF1-8CCB-E3A1573F51EF} = {3E5A22F5-84D8-497C-955C-B3B2E5AEE466}
-		{78BB2AAC-612E-4A45-A503-89E2DC07B9EF} = {37F265C7-051D-4A3A-B565-4CB815EFCA21}
+		{3EC8F462-18F1-417B-95F3-644D1298EA28} = {3E5A22F5-84D8-497C-955C-B3B2E5AEE466}
+		{C0493C2E-82B8-4F85-A6B4-6EF2FBE9AD53} = {3E5A22F5-84D8-497C-955C-B3B2E5AEE466}
+		{D11DEB6A-42AA-4DDE-AF4A-4FA68E8D9AC3} = {3E5A22F5-84D8-497C-955C-B3B2E5AEE466}
 	EndGlobalSection
 EndGlobal

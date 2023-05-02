@@ -17,7 +17,7 @@ namespace Dvchevskii.Extensions.Configuration.Yaml
             _namingConvention = namingConvention;
         }
 
-        public IEnumerable<KeyValuePair<string, string>> Parse(Stream stream)
+        public Dictionary<string,string> Parse(Stream stream)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
 
