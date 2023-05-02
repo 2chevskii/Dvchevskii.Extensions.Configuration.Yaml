@@ -1,0 +1,7 @@
+﻿Test: true
+Foo:
+  Bar: 42
+users:
+  - name: andrey
+    age: 25
+    plain_text_password: somepass
