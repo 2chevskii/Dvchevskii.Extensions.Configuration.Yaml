@@ -1,19 +1,27 @@
+#addin nuget:?package=Cake.Incubator&version=8.0.0
 #load paths.cake
+#load args.cake
 
 static List<BuildProject> projects;
-projects = new List<BuildProject> {
-  new BuildProject {
-    Name = "Dvchevskii.Extensions.Configuration.Yaml",
-    Path = paths.Src.CombineWithFilePath("Dvchevskii.Extensions.Configuration.Yaml/Dvchevskii.Extensions.Configuration.Yaml.csproj")
-  },
-  new BuildProject {
-    Name = "Dvchevskii.Extensions.Configuration.Yaml.Tests",
-    Path = paths.Test.CombineWithFilePath("Dvchevskii.Extensions.Configuration.Yaml.Tests/Dvchevskii.Extensions.Configuration.Yaml.Tests.csproj"),
 
-  }
-};
+projects = ParseSolution(paths.Solution).Projects
+.Where(project => project.IsType(ProjectType.CSharp))
+.Select(solutionProject => {
+  var buildProject = new BuildProject {
+    Name = solutionProject.Name,
+    Path = solutionProject.Path
+  };
+  buildProject.Dependencies.AddRange(
+    ParseProject(solutionProject.Path, args.Configuration).ProjectReferences
+    .Select(reference => reference.FilePath)
+    .Select(referencePath => new BuildProject {
+      Name = referencePath.GetFilenameWithoutExtension().ToString(),
+      Path = referencePath
+    })
+  );
 
-projects[1].Dependencies.Add(projects[0]);
+  return buildProject;
+}).ToList();
 
 class BuildProject {
   public string Name { get; init; }
