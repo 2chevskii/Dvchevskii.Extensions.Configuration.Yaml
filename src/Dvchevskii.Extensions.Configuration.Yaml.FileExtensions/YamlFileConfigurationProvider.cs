@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Dvchevskii.Extensions.Configuration.Yaml.Core;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +16,7 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.FileExtensions
         {
             Data = new Dictionary<string, string>(
                 new YamlConfigurationParser(Source.NamingConvention).Parse(stream),
-                Source.KeyEqualityComparer
+                Source.KeyEqualityComparer ?? StringComparer.OrdinalIgnoreCase
             );
         }
     }

@@ -18,7 +18,7 @@ namespace Dvchevskii.Extensions.Configuration.Yaml.StreamExtensions
         {
             Data = new Dictionary<string, string>(
                 new YamlConfigurationParser(Source.NamingConvention).Parse(stream),
-                Source.KeyEqualityComparer
+                Source.KeyEqualityComparer ?? StringComparer.OrdinalIgnoreCase
             );
         }
     }
